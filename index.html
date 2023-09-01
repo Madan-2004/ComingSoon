@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0ceeca1f1f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Coming Soon!</title>
+</head>
+<body>
+    <h4>BetterWorks</h4>
+    <div class="container">
+        <h5>Website is Under Maintenance...</h5>
+        <h1>We're <span>Launching</span> Soon</h1>
+        <div class="count">
+            <div>
+                <h3 id="days">00</h3>
+                <p>Days</p>
+            </div>
+            <div>
+                <h3 id="hours">00</h3>
+                <p>Hours</p>
+            </div>
+            <div>
+                <h3 id="mins">00</h3>
+                <p>Minutes</p>
+            </div>
+            <div>
+                <h3 id="sec">00</h3>
+                <p>Seconds</p>
+            </div>
+        </div>
+        <button>Learn More <i class="fa-solid fa-play"></i></button>
+    </div>
+    <div class="image">
+        <img src="rocket.png" id="img">
+    </div>
+
+    <script>
+        var countDate = new Date("Oct 2, 2023 00:00:00").getTime();
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var distance = countDate-now;    
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("days").innerHTML = days<10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours<10 ? "0" + hours : hours;
+            document.getElementById("mins").innerHTML = minutes<10 ? "0" + minutes : minutes;
+            document.getElementById("sec").innerHTML = seconds<10 ? "0" + seconds : seconds;
+        },1000);
+    </script>
+</body>
+</html>
